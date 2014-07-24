@@ -6,7 +6,6 @@ require "json"
 class NnmclubApi
   attr_accessor :agent, :result
 
-  LOGIN_PAGE  = 'http://nnm-club.me/forum/login.php'
   SEARCH_PAGE = 'http://nnm-club.me/forum/tracker.php'
 
   ORDER_OPTIONS = { date: 1, name: 2, downloads: 4, shows: 6, seeders: 10,
@@ -14,7 +13,7 @@ class NnmclubApi
                     speed_down: 13, message_count: 5, last_seed: 9 }
   SORT_OPTIONS = {asc: 1, desc: 2}
 
-  def initialize(username, password)
+  def initialize
     @agent = Mechanize.new
     @agent.user_agent_alias = "Mac Safari"
   end
@@ -34,7 +33,6 @@ class NnmclubApi
 
   private
     def prepare_query_string(options)
-      #?q=lorem+ipsum&w=title
       SEARCH_PAGE+"?nm="+options[:title].gsub(/\s/,'%20')
     end
 

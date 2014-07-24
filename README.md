@@ -20,7 +20,7 @@ Or install it yourself as:
 
 	require 'nnmClub_api'
 
-	client = NnmclubApi.new('user','pass')
+	client = NnmclubApi.new
 	client.search(:title => "Noize MC")
 
 	puts client.result
