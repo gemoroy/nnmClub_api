@@ -34,7 +34,7 @@ describe "NnmClub" do
 
   describe "Torrent" do
     before {
-      @torrent_id = "728159"
+      @torrent_id = "97600"
       @torrent    = NnmClub::Torrent.find @torrent_id
     }
     it "should return @description" do
