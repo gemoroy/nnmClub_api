@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = NnmClubApi::VERSION
   spec.authors       = ["Baranov Sergey"]
   spec.email         = ["sergey@drummer.ru"]
-  spec.summary       = %q{ Write a short summary. Required.}
-  spec.description   = %q{ Write a longer description. Optional.}
+  spec.summary       = %q{NNM-Club torrent-tacker parser.}
+  spec.description   = %q{Gem for parsing NoNaMe Club torrent-tracker.}
   spec.homepage      = "https://github.com/gemoroy/nnmClub_api"
   spec.license       = "MIT"
 
@@ -18,6 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "guard-rspec"
+
+  spec.add_dependency "nokogiri"
 end
