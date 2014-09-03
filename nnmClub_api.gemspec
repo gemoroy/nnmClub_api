@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = NnmClubApi::VERSION
   spec.authors       = ["Baranov Sergey"]
   spec.email         = ["sergey@drummer.ru"]
-  spec.summary       = %q{ Write a short summary. Required.}
-  spec.description   = %q{ Write a longer description. Optional.}
+  spec.summary       = %q{NNM-Club torrent-tacker parser.}
+  spec.description   = %q{Gem for parsing NoNaMe Club torrent-tracker.}
   spec.homepage      = "https://github.com/gemoroy/nnmClub_api"
   spec.license       = "MIT"
 
