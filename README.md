@@ -18,12 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
-	require 'nnmClub_api'
+  require 'nnmClub_api'
+  
+### Example:Search
 
-	client = NnmclubApi.new
-	client.search(:title => "Noize MC")
+    NnmClub::Search("Noize MC").torrents
 
-	puts client.result
+returns an Array of Hashes
+
+    {  :title    => the title of the distribution,
+      :size       => size,
+      :seeders    => seeders,
+      :leechers   => leechers,
+      :torrent_id => torrent_id,
+      :tracker    => NnmClub::ID
+    }
+    
+### Example:Torrent
+
+    NnmClub::Torrent.find "728159"
+    
+returns an Hash
+
+    {   :content    => "HTML"
+        :image      => "UTL"
+
 
 ## Contributing
 
