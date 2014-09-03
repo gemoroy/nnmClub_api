@@ -1,14 +1,45 @@
-require 'nnmClub_api'
+require "nnmClub_api"
 
-describe "NnmclubApi " do
-  before { @tracker = NnmclubApi.new('login', 'pass') }
-  subject { @tracker }
+describe "NnmClub" do
+  describe "Search" do
+    before {
+      @query = "ruby on rails"
+      @search = NnmClub::Search.new @query
+      @url = NnmClub::URL
+    }
+    it "should return correct url without category" do
+      expect(@search.url).to eq(@url+"nm=#{URI.escape(@query)}")
+    end
 
-  describe "#search" do
-    describe "with valid params" do
-      it "returns link with term" do
-        expect( @tracker.search(title: "Noize MC") ).to eq('http://nnm-club.me/forum/tracker.php?nm=Noize%20MC')
-      end
+    it "should return correct url with category" do
+      @search = NnmClub::Search.new(@query,17)
+      expect(@search.url).to eq(@url+"nm=#{URI.escape(@query)}"+"&c=17")
     end
   end
+
+  describe "#torrents" do
+    before {
+      @query = "ruby on rails"
+      @search = NnmClub::Search.new @query
+    }
+
+    it "should return array" do
+      expect(@search.torrents.class).to eq([].class)
+    end
+
+    it "should retur array of 3 elements" do
+      expect(@search.torrents.length).to eq(3)
+    end
+  end
+
+  describe "Torrent" do
+    before {
+      @torrent_id = "728159"
+      @torrent    = NnmClub::Torrent.find @torrent_id
+    }
+    it "should return @description" do
+      expect(@torrent.class).to eq({}.class)
+    end
+  end
+
 end
