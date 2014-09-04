@@ -1,26 +1,12 @@
 require "nnmClub_api"
+require "mechanize"
 
 describe "NnmClub" do
-  describe "Search" do
-    before {
-      @query = "ruby on rails"
-      @search = NnmClub::Search.new @query
-      @url = NnmClub::URL
-    }
-    it "should return correct url without category" do
-      expect(@search.url).to eq(@url+"nm=#{URI.escape(@query)}")
-    end
-
-    it "should return correct url with category" do
-      @search = NnmClub::Search.new(@query,17)
-      expect(@search.url).to eq(@url+"nm=#{URI.escape(@query)}"+"&c=17")
-    end
-  end
-
   describe "#torrents" do
     before {
       @query = "ruby on rails"
-      @search = NnmClub::Search.new @query
+      agent = NnmClub::NnmClub_api.new.agent
+      @search = NnmClub::Search.new(@query,agent)
     }
 
     it "should return array" do
@@ -34,12 +20,21 @@ describe "NnmClub" do
 
   describe "Torrent" do
     before {
-      @torrent_id = "97600"
-      @torrent    = NnmClub::Torrent.find @torrent_id
+      @torrent_id = "728159"
+      agent = NnmClub::NnmClub_api.new.agent
+      @torrent    = NnmClub::Torrent.find(@torrent_id,agent)
     }
     it "should return @description" do
       expect(@torrent.class).to eq({}.class)
     end
+    it "should return image" do
+      expect(@torrent[:image].empty?).to eq(false)
+    end
+    it "should return content" do
+      expect(@torrent[:content].empty?).to eq(false)
+    end
+    it "should return link" do
+      expect(@torrent[:magnet].empty?).to eq(false)
+    end
   end
-
 end

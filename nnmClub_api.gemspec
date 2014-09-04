@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nnmClub_api/version'
+require "nnmClub_api/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "nnmClub_api"
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
 
-  spec.add_dependency "nokogiri"
+  spec.add_dependency "mechanize", "2.7.3"
 end
