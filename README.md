@@ -22,26 +22,36 @@ Or install it yourself as:
   
 ### Example:Search
 
-    NnmClub::Search("Noize MC").torrents
+    NnmClub::Search("noize mc").torrents
 
 returns an Array of Hashes
 
-    {  :title    => the title of the distribution,
+    { 
+      :title    => the title of the distribution,
       :size       => size,
       :seeders    => seeders,
-      :leechers   => leechers,
       :torrent_id => torrent_id,
-      :tracker    => NnmClub::ID
     }
     
 ### Example:Torrent
 
-    NnmClub::Torrent.find "728159"
+    NnmClub::Torrent.find "97600"
     
 returns an Hash
 
-    {   :content    => "HTML"
-        :image      => "UTL"
+    {   
+        :content    => "HTML",
+        :image      => "URL",
+        :magnet     => magnet-link or none
+    }
+    
+### Example:NnmClub_api
+
+    api = NnmClub:NnmClub_api.new
+    api.search("noize mc")
+    #=> Array of Hashes { :title => ..., }
+    api.find("97600")
+    #=> Hash { :content => ..., }
 
 
 ## Contributing
