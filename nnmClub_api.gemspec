@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
 
-  spec.add_dependency "mechanize", "2.7.3"
+  spec.add_dependency "mechanize", "2.7.2"
 end
